@@ -1,0 +1,134 @@
+《HTML基础》
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试页面</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="测试图片">
+  </body>
+</html>
+
+<head></head> — <head> 元素。这个元素放置的内容不是展现给用户的，而是包含例如面向搜索引擎的搜索关键字（keywords）、页面描述、CSS 样式表
+和字符编码声明等
+<meta charset="utf-8"> — 这个元素指定了当前文档使用 UTF-8 字符编码 
+<body></body> — <body> 元素。这个元素包含期望让用户在访问页面时看到的内容，可以是文本、图像、视频、游戏、可播放的音轨或其他内容。
+
+不包含任何内容的元素称为空元素。比如 <img> 元素
+<img src="images/firefox-icon.png" alt="测试图片">
+本元素包含两个属性，但是并没有 </img> 结束标签，元素里也没有内容。这是因为图像元素不需要通过内容来产生效果，它的作用是向其所在的位置嵌入一个图像。
+替换文字属性 alt，是图像的描述内容，用于当图像不能被用户看见时显示，不可见的原因可能是：
+    用户有视觉障碍。视障用户可以使用屏幕阅读器来朗读 alt 属性的内容。
+    有些错误使图像无法显示。可以试着故意将 src 属性里的路径改错。保存并刷新页面就可以在图像位置看到
+
+标记文本
+1.标题（Heading）
+六级标题
+<h1>主标题</h1>
+<h2>顶层标题</h2>
+<h3>子标题</h3>
+<h4>次子标题</h4>
+2.段落（Paragraph）
+<p>这是一个段落</p>
+3.列表（List）
+Web 上的许多内容都是列表，HTML 有一些特别的列表元素。标记列表通常包括至少两个元素
+    无序列表（Unordered List）中项目的顺序并不重要，就像购物列表。用一个<ul>元素包围。
+    有序列表（Ordered List）中项目的顺序很重要，就像烹调指南。用一个<ol>元素包围
+列表的每个项目用一个列表项目（List Item）元素 <li> 包围
+4.链接
+<a href="">Mozilla 宣言</a>
+
+
+
+《CSS基础》
+层叠样式表（Cascading Style Sheet，简称：CSS）是为网页添加样式的代码。
+介绍 CSS 的基础知识，并解答类似问题：怎样将文本设置为黑色或红色？怎样将内容显示在屏幕的特定位置？怎样用背景图片或颜色来装饰网页？
+和 HTML 类似，CSS 也不是真正的编程语言，甚至不是标记语言。它是一门样式表语言
+人们可以用它来选择性地为 HTML 元素添加样式。编写css文件，在html中链接起来
+ <head>
+  <meta charset="UTF-8">
+  <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <title>My Test page</title>
+ </head>
+1.同时修改多个属性
+p {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+2.多元素选择：选择多种类型的元素并为它们添加一组相同的样式
+p, li, h1 {
+  color: red;
+}
+3.不同类型的选择器
+选择器有许多不同的类型。上面只介绍了元素选择器，用来选择 HTML 文档中给定的元素。但是选择操作可以更加具体。
+详细后面再补充
+
+字体和文本
+（中文字体文件较大，不适合直接用于 Web Font）
+1.添加Google FRont中的字体
+<link href="https://fonts.font.im/css?family=Open+Sans" rel="stylesheet" type="text/css">
+2.接下来，删除 style.css 文件中已有的规则
+3.将下列代码添加到相应的位置，用你在 Google Fonts 找到的字体替代 font-family 中的占位行
+html {
+  /* px 表示 “像素（pixels）”: 基础字号为 10 像素 */
+  font-size: 10px; 
+  /* Google fonts 输出的 CSS */
+  font-family: 'Open Sans', sans-serif; 
+}
+4.接下来为文档体内的元素（<h1>、<li> 和 <p>）设置字号。将标题居中显示，并为正文设置行高和字间距，从而提高页面的可读性。
+（此处不是很明白，下载的字体怎么就直接能用了，而且两个<link>并存）
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+p, li {
+  font-size: 16px;    
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+编写 CSS 时你会发现，你的工作好像是围绕着一个一个盒子展开的——设置尺寸、颜色、位置，等等。页面里大部分 HTML 元素都可以被看作若干层叠的盒子。
+CSS 布局主要就是基于盒模型的。每个占据页面空间的块都有这样的属性：
+margin：即外边距，围绕元素外部的空间。
+border：即边框，紧接着内边距的线。
+padding：即内边距，围绕着内容（比如段落）的空间。
+
+
+
+《JavaScript基础》
+JavaScript（JS）是一门完备的动态编程语言
+当应用于HTML文档时，可为网站提供动态交互特性。
+简洁灵活，开发者们基于 JavaScript 核心编写了大量实用工具：
+1）浏览器应用程序接口（API）—— 浏览器内置的 API 提供了丰富的功能，比如：动态创建 HTML 和设置 CSS 样式、从用户的摄像头采集处理视频流、生成3D 图像与音频样本，等等。
+2）第三方 API —— 让开发者可以在自己的站点中整合其它内容提供者（Twitter、Facebook等）提供的功能。
+3）第三方框架和库 —— 用来快速构建网站和应用。
+
+1.变量（Variable）
+要声明一个变量，先输入关键字 let ，然后输入合适的名称
+let myVariable;
+2.运算符
+只需注意  === 测试两个值是否相等，并返回一个 true/false （布尔）值。
+3.函数（Function）
+function multiply(n1,n2){
+   let result = n1 * n2;
+   return result;
+}
+4.事件
+事件能为网页添加真实的交互能力。它可以捕捉浏览器操作并运行一些代码做为响应。最简单的事件是点击事件，鼠标的点击操作会触发该事件。
+可尝试将下面的代码输入到控制台，然后点击页面的任意位置
+document.querySelector('html').onclick = function(){
+   alert('别戳我，我怕疼。')
+}
+即：
+let myHTML = document.querySelector('html');
+myHTML.onclick = function(){};
+
+添加一个图像切换器
+这里将用新的 DOM API 为网页添加另一张图片，并用 JavaScript 使图片在点击时进行切换。
+添加个性化欢迎信息
+在用户初次进入站点时将网页的标题改成一段个性化欢迎信息（即在标题中添加用户的名字）。名字信息会由 Web Storage API 保存下来，
+即使用户关闭页面之后再重新打开，仍可得到之前的信息。还会添加一个选项，可以根据需要改变用户名字以更新欢迎信息。
